@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 // Functions
 
@@ -41,7 +41,6 @@ const calcAge2 = function(birthYeah) {
 const age2 = calcAge2(1998);
 console.log(age2);
 */
-
 
 // Arrow Function
 /*
@@ -142,7 +141,7 @@ friends.push('A');
 console.log(friends);
 */
 
-// Obeject 
+// Obeject
 /*
 const NISHANT = {
     firstName: 'Nishant',
@@ -298,7 +297,7 @@ while (rep <= 10) {
 }
 */
 
-
+/*
 let dice = Math.trunc(Math.random() * 6) + 1;
 
 while (dice !== 6) {
@@ -309,3 +308,59 @@ while (dice !== 6) {
         console.log("END");
     }
 }
+*/
+
+const temprature = [3, -2, -6, -1, "error", 9, 13, 17, 15, 14, 9, 5];
+
+//Understanding the problem
+
+//What is temp amplitude? => difference betn highest and lowest  temp.
+// How to computer max and min temp?
+// Whats a sensor error? And what to do?
+
+// Breaking up the problem into sub problem
+
+// Ignore the sensor error but how??
+// Find the max value in temp array.
+// min falue find
+// subtract min from max(amplitude) and return it.
+/*
+const calcTempAmplitude = function (temps) {
+  let max = temps[0];
+  let min = temps[0];
+
+  for (let i = 0; i <= temps.length; i++) {
+    const currentTemp = temps[i];
+
+    if (typeof currentTemp !== "number") continue;
+
+    if (currentTemp > max) {
+      max = currentTemp;
+    }
+    if (currentTemp < min) {
+      min = currentTemp;
+    }
+
+    console.log(max, min);
+  }
+  return max - min;
+};
+
+const amplitude = calcTempAmplitude(temprature);
+console.log(amplitude);
+*/
+
+//Debugging
+
+const measureKelvin = function () {
+  const measurement = {
+    type: "temp",
+    unit: "cels",
+    value: prompt("Degrees celsius: "),
+  };
+
+  const kelvin = Number(measurement.value) + 273;
+  return kelvin;
+};
+
+console.log(measureKelvin());
