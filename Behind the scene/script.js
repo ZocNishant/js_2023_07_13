@@ -98,7 +98,7 @@ const nepal = {
 
 nepal.calcAge = nishant.calcAge;
 */
-
+/*
 const nishant = {
   firstName: 'Nishant',
   year: 1997,
@@ -112,3 +112,32 @@ const nishant = {
 };
 
 nishant.greet();
+*/
+
+// Arguments keyword
+/*
+const addExpr = function (a, b) {
+  console.log(arguments);
+  return a + b;
+};
+addExpr(2, 5);
+
+var addArrow = (a, b) => a + b;
+*/
+
+let age = 30;
+let oldAge = age;
+
+age = 31;
+console.log(oldAge);
+console.log(age);
+
+const me = {
+  name: 'Nishant',
+  age: 30,
+};
+
+const friend = me;
+friend.age = 27;
+console.log(friend);
+console.log(me);
