@@ -125,6 +125,8 @@ addExpr(2, 5);
 var addArrow = (a, b) => a + b;
 */
 
+/*
+
 let age = 30;
 let oldAge = age;
 
@@ -141,3 +143,47 @@ const friend = me;
 friend.age = 27;
 console.log(friend);
 console.log(me);
+*/
+
+/*
+//Primitive Types
+let lastName = 'Joshi';
+
+let oldLastName = lastName;
+
+lastName = 'Paras';
+
+console.log(lastName, oldLastName);
+
+//Reference type
+const nepal = {
+  fistName: 'Nepal',
+  lastName: 'Josi',
+  age: 192222,
+};
+
+const marriedNepal = nepal;
+
+marriedNepal.lastName = 'Nis';
+
+console.log(nepal);
+console.log(marriedNepal);
+
+//COpying object
+
+const jessica2 = {
+  fistName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+  family: ['a', 'b', 'c'],
+};
+
+const kessica = Object.assign({}, jessica2);
+kessica.lastName = 'Nepal';
+
+kessica.family.push('D');
+kessica.family.push('E');
+
+console.log(jessica2);
+console.log(kessica);
+*/
