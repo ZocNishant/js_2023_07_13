@@ -85,7 +85,62 @@ const resturant = {
   }) {
     console.log(starterIndex, mainIndex, time, address);
   },
+
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(`Pasta ${(ing1, ing2, ing3)}`);
+  },
+
+  orderPizza: function (mainIngredient, ...otherIngredient) {
+    console.log(mainIngredient);
+    console.log(otherIngredient);
+  },
 };
+
+// this is spread because it is written in the right side of =
+// const arr = [1, 2, ...arr];
+
+// this is rest because it is written in the left side of =
+const [a, b, ...others] = [1, 2, 3, 5, 2, 3, 52, 62, 14, 78];
+console.log(a, b, others);
+
+const [pizza, , risotto, ...otherFood] = [
+  ...resturant.mainMenu,
+  ...resturant.starterMenu,
+];
+console.log(pizza, risotto, otherFood);
+
+const { sat, ...weekDays } = resturant.openingHours;
+console.log(weekDays);
+
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+    console.log(sum);
+  }
+};
+
+add(2, 3);
+add(2, 3, 8);
+add(2, 3, 8, 8, 65, 356);
+
+const x = [23, 5, 7];
+add(...x);
+
+resturant.orderPizza('chicken', 'tomato', 'onion', 'olive');
+
+/*
+const ingredients = [
+  // prompt('Lets make pasta! ing1'),
+  // prompt('Lets make pasta! ing2'),
+  // prompt('Lets make pasta! ing3'),
+];
+console.log(ingredients);
+resturant.orderPasta(...ingredients);
+
+// Objects
+const newResturant = { ...resturant, founder: 'Nishant' };
+console.log(newResturant);
 
 resturant.orderDelivery({
   time: 12,
@@ -121,3 +176,30 @@ const {
   fri: { open: o, close: c },
 } = openingHours;
 console.log(o, c);
+
+// Spread Operator
+
+const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr);
+
+const newArr = [1, 2, ...arr];
+console.log(newArr);
+
+const newMenu = [...resturant.mainMenu, 'MOMO'];
+console.log(newMenu);
+
+// Copy Array
+
+const mainMenuCopy = [...resturant.mainMenu];
+
+// Join 2 array or more
+const menuu = [...mainMenuCopy, ...resturant.starterMenu];
+console.log(menuu);
+
+//
+
+const str = 'Nishant';
+const letters = [...str, ' ', 's.'];
+console.log(letters);
+*/
