@@ -28,3 +28,13 @@
   color: white;
   font-weight: bolder;
 }
+
+.buy,
+.poll {
+  padding: 20px;
+  color: #42275a;
+  font-weight: bolder;
+  margin: 5px;
+  border-radius: 20px;
+  cursor: pointer;
+}

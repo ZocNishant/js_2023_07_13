@@ -78,12 +78,108 @@ transformer('JavaScript best', upperFirst);
 transformer('JavaScript best', onwWord);
 */
 
+/*
 const greet = function (greeting) {
   return function (name) {
     console.log(`${greeting} ${name}`);
   };
 };
+*/
+/*
+// Same function as above but using arrow function
+const greet = greeting => name => {
+  console.log(`${greeting} ${name}`);
+};
 
 const greeterHey = greet('Hey');
 
 greeterHey('Nishant');
+greeterHey('Joshi');
+
+greet('Hello')('Zoc');
+*/
+
+const nepalanza = {
+  airlines: 'Nepal',
+  iataCode: 'NP',
+  booking: [],
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a seat in ${this.airlines} flight ${this.iataCode} ${flightNum}.`
+    );
+    this.booking.push({ flight: `${this.iataCode} ${flightNum}`, name });
+  },
+};
+
+nepalanza.book(222, 'Nishant Joshi');
+nepalanza.book(269, 'Paras Joshi');
+console.log(nepalanza);
+
+const nepalFli = {
+  airlines: 'NepalFli',
+  iataCode: 'NF',
+  booking: [],
+};
+
+const book = nepalanza.book;
+
+// Doesnot work
+// book(23, 'NJ');
+
+// Call Method
+book.call(nepalFli, 23, 'NJ');
+console.log(nepalFli);
+
+book.call(nepalanza, 256, 'Parass');
+console.log(nepalanza);
+
+const nepalFly = {
+  airlines: 'NepalFly',
+  iataCode: 'NFy',
+  booking: [],
+};
+
+book.call(nepalFly, 223, 'NJz');
+console.log(nepalFly);
+
+// Apply Method
+const flightData = [586, 'Pasa Joshi'];
+book.apply(nepalFly, flightData);
+console.log(nepalFly);
+
+book.call(nepalFly, ...flightData);
+console.log(nepalFly);
+
+// Bind Method
+
+const bookNFy = book.bind(nepalFly);
+const bookNP = book.bind(nepalanza);
+const bookNF = book.bind(nepalFli);
+bookNFy(5678, 'Chove Bro');
+bookNP(1234, 'Ma Dude');
+bookNF(91011, 'Pasa Bro');
+
+const bookNFy123 = book.bind(nepalFly, 123);
+bookNFy123('Jassee Pinkman');
+
+// With Event Listeners
+nepalanza.planes = 300;
+nepalanza.buyPlane = function () {
+  this.planes++;
+  console.log(this.planes);
+  console.log(this);
+};
+
+document
+  .querySelector('.buy')
+  .addEventListener('click', nepalanza.buyPlane.bind(nepalanza));
+
+// Partial Application
+
+const addTax = (rate, value) => {
+  return value + value * rate;
+};
+console.log(addTax(0.1, 10));
+
+const addVAT = addTax.bind(null, 0.13);
+console.log(addVAT(50));
